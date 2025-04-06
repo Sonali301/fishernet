@@ -1,0 +1,81 @@
+<% layout("/layouts/boilerplate") %>
+
+<style>
+    #filters {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        color:black !important;
+    }
+    .filter {
+        text-align: center;
+        margin-right: 2rem;
+        margin-top: 2rem;
+        opacity: 1;
+    }
+    .filter:hover {
+        color:red;
+        opacity: 5;
+        cursor: pointer;
+    }
+    .filter p {
+        font-size: 0.8rem;
+    }
+</style>
+
+<div id="filters">
+    <div class="filter">
+        <div><i class="fa-solid fa-anchor"></i></div>
+        <p>All Nets</p>
+    </div>
+
+    <div class="filter">
+        <div><i class="fa-solid fa-fish"></i></div>
+        <p>Gill Nets</p>
+    </div>
+
+    <div class="filter">
+        <div><i class="fa-solid fa-water"></i></div>
+        <p>Trawl Nets</p>
+    </div>
+
+    <div class="filter">
+        <div><i class="fa-solid fa-ship"></i></div>
+        <p>Boat Nets</p>
+    </div>
+
+    <div class="filter">
+        <div><i class="fa-solid fa-ruler-combined"></i></div>
+        <p>Large Nets</p>
+    </div>
+
+    <div class="filter">
+        <div><i class="fa-solid fa-compress-alt"></i></div>
+        <p>Small Nets</p>
+    </div>
+</div>
+
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+    <% for(let listing of allListings) { %>
+        <a href="/listings/<%= listing._id %>" class="listing-link">
+            <div class="card col listing-card">
+                <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height: 20rem"/>
+                <div class="card-img-overlay"></div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <b><%= listing.boatname %></b> <br/>
+                        <small class="text-muted">
+                            <%= listing.nettype %> | 
+                            <%= listing.netsize.length %>×<%= listing.netsize.width %>×<%= listing.netsize.depth %> <%= listing.netsize.unit %>
+                        </small>
+                    </p>
+                    <p class="card-text">
+                        <small class="text-muted">
+                            Available: <%= listing.month %>
+                        </small>
+                    </p>
+                </div>
+            </div>
+        </a>
+    <% } %>
+</div>

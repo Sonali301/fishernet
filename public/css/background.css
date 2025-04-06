@@ -1,0 +1,21 @@
+/* background.css - Styles for the interactive background */
+
+#canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}

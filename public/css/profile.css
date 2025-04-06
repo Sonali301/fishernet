@@ -1,0 +1,301 @@
+:root {
+    --primary: #1FB8FB;
+    --primary-light: rgba(31, 184, 251, 0.1);
+    --primary-dark: #2B86C5;
+    --accent: #784BA0;
+    --accent-light: rgba(120, 75, 160, 0.1);
+    --text: #ffffff;
+    --text-subtle: rgba(255, 255, 255, 0.7);
+    --bg-card: rgba(15, 15, 20, 0.5);
+    --bg-card-hover: rgba(20, 20, 30, 0.6);
+    --border: rgba(255, 255, 255, 0.1);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.3);
+    --transition: 0.3s ease;
+}
+
+.projects-content {
+    max-width: 1200px;
+    /* Keeping original width */
+    padding: 80px 20px 100px;
+    margin: 0 auto;
+}
+
+.projects-intro {
+    max-width: 800px;
+    margin: 0 auto 60px;
+    text-align: center;
+}
+
+.projects-intro p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-subtle);
+}
+
+/* Section headings */
+
+.projects-content h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.projects-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: var(--primary);
+}
+
+/* Projects Overview Grid - FIXED for 4 items per row */
+
+.projects-overview {
+    margin-bottom: 80px;
+}
+
+.overview-grid {
+    display: grid;
+    /* This configuration ensures 4 items per row at 1200px container width */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.overview-card {
+    background: var(--bg-card);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 30px;
+    text-align: center;
+    transition: transform var(--transition), box-shadow var(--transition), background-color var(--transition);
+    cursor: pointer;
+}
+
+.overview-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+    background: var(--bg-card-hover);
+}
+
+.overview-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    padding: 15px;
+}
+
+.overview-icon img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.overview-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--text);
+}
+
+.overview-card p {
+    font-size: 0.95rem;
+    color: var(--text-subtle);
+    line-height: 1.5;
+}
+
+/* Detailed Project Cards */
+
+.projects-detailed {
+    margin-bottom: 80px;
+}
+
+.project-card {
+    margin-bottom: 50px;
+    background: var(--bg-card);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.project-content {
+    padding: 40px;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.project-header h3 {
+    font-size: 1.6rem;
+    margin: 0;
+    color: var(--text);
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+}
+
+.text-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: opacity var(--transition), color var(--transition);
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+}
+
+.text-link:hover {
+    border-bottom: 1px solid var(--primary);
+    opacity: 0.9;
+}
+
+.project-description {
+    color: var(--text-subtle);
+    line-height: 1.7;
+}
+
+.project-description p {
+    margin-bottom: 20px;
+}
+
+/* More Projects Section */
+
+.more-projects {
+    text-align: center;
+    padding: 40px;
+    background: var(--bg-card);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.more-projects p {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    color: var(--text-subtle);
+}
+
+.more-projects-cta {
+    margin-top: 20px;
+}
+
+.more-projects-cta .text-link {
+    font-size: 1.1rem;
+}
+
+/* Animation for section entrance */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.projects-overview,
+.projects-detailed,
+.more-projects {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Responsive Design */
+
+@media (max-width: 1100px) {
+    /* Switch to 3 columns below 1100px */
+    .overview-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 800px) {
+    /* Switch to 2 columns below 800px */
+    .overview-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .project-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .projects-content h2 {
+        font-size: 1.6rem;
+    }
+    .project-content {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 900px) {
+    /* Switch to 1 column below 500px */
+    .overview-grid {
+        grid-template-columns: 1fr;
+    }
+    .overview-icon {
+        width: 60px;
+        height: 60px;
+    }
+    .project-content {
+        padding: 0px;
+    }
+    .project-header h3 {
+        font-size: 1.4rem;
+    }
+}
+
+#weather-data, #fish-prediction, #gps-data, #catch-report, #regulations, #safety, #profile, #history {
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }
+  
+  #catch-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #catch-form label {
+    margin-top: 10px;
+    color: #6c7575; /* Cadet blue */
+  }
+  
+  #catch-form input, #catch-form button {
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  #catch-form button {
+    background-color: #181819; /* Slate gray */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #catch-form button:hover {
+    background-color: #5e6063; /* Dim gray */
+  }
+  

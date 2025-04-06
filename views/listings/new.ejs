@@ -1,0 +1,96 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="row mt-3">
+    <div class="col-8 offset-2">
+        <h3>Create New Fishing Net Listing</h3>
+        <form 
+            method="POST" 
+            action="/listings" 
+            novalidate class="needs-validation" 
+            enctype="multipart/form-data"
+        >
+
+            <div class="mb-3">
+                <label for="boatname" class="form-label">Boat Name</label>
+                <input name="listing[boatname]" placeholder="Enter boat name" type="text" class="form-control" required>
+                <div class="invalid-feedback">Please provide a boat name</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="nettype" class="form-label">Net Type</label>
+                <select name="listing[nettype]" class="form-control" required>
+                    <option value="" disabled selected>Select net type</option>
+                    <option value="Gill Net">Gill Net</option>
+                    <option value="Trawl Net">Trawl Net</option>
+                    <option value="Cast Net">Cast Net</option>
+                    <option value="Seine Net">Seine Net</option>
+                    <option value="Trammel Net">Trammel Net</option>
+                </select>
+                <div class="invalid-feedback">Please select net type</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea name="listing[description]" placeholder="Describe the net's features and condition" class="form-control" required></textarea>
+                <div class="invalid-feedback">Please enter a description</div>
+            </div>
+
+            <h5 class="mt-4">Net Dimensions</h5>
+            <div class="row">
+                <div class="mb-3 col-md-3">
+                    <label for="length" class="form-label">Length</label>
+                    <input name="listing[netsize][length]" placeholder="e.g. 10" type="number" min="1" class="form-control" required>
+                    <div class="invalid-feedback">Must be at least 1</div>
+                </div>
+
+                <div class="mb-3 col-md-3">
+                    <label for="width" class="form-label">Width</label>
+                    <input name="listing[netsize][width]" placeholder="e.g. 5" type="number" min="1" class="form-control" required>
+                    <div class="invalid-feedback">Must be at least 1</div>
+                </div>
+
+                <div class="mb-3 col-md-3">
+                    <label for="depth" class="form-label">Depth</label>
+                    <input name="listing[netsize][depth]" placeholder="e.g. 2" type="number" min="1" class="form-control" required>
+                    <div class="invalid-feedback">Must be at least 1</div>
+                </div>
+
+                <div class="mb-3 col-md-3">
+                    <label for="unit" class="form-label">Unit</label>
+                    <select name="listing[netsize][unit]" class="form-control" required>
+                        <option value="feet">Feet</option>
+                        <option value="meters">Meters</option>
+                    </select>
+                    <div class="invalid-feedback">Please select unit</div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="month" class="form-label">Available Month</label>
+                <select name="listing[month]" class="form-control" required>
+                    <option value="" disabled selected>Select availability month</option>
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+                </select>
+                <div class="invalid-feedback">Please select availability month</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="image" class="form-label">Upload Net Image</label>
+                <input name="listing[image]" type="file" class="form-control">
+            </div>
+
+            <button class="btn btn-dark add-btn mt-3 mb-5">Create Listing</button>
+        </form>
+    </div>
+</div>

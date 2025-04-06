@@ -1,0 +1,131 @@
+<% layout("/layouts/boilerplate") %>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        #data-container{
+            margin-left: 23em;
+        }
+       body {
+           background-color: black;
+           
+            
+        }
+
+        #map-and-data {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #map {
+            height: 500px; /* Set a fixed height for the map */
+            width: 100%;
+            margin-top: 2em;
+        }
+
+        #gps-container {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #gps-container h2 {
+            color: #2F4F4F;
+            margin-top: 0;
+            border-bottom: 1px solid #b0c4de;
+            padding-bottom: 10px;
+        }
+
+    </style>
+    <style>
+        body {
+            font-family: sans-serif;
+           background-color: black;
+           
+            min-height: 100vh;
+       
+        
+        }
+
+        ul.corner-nav {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            position: absolute; /* Position it relative to the nearest positioned ancestor (body here) */
+            top: 10px; /* Adjust top spacing as needed */
+            right: 10px; /* Adjust right spacing as needed */
+            display: flex; /* Arrange list items in a row */
+        }
+
+        ul.corner-nav li {
+            margin-left: 15px; /* Spacing between list items */
+        }
+
+        ul.corner-nav li:first-child {
+            margin-left: 0; /* Remove left margin for the first item */
+        }
+
+        ul.corner-nav li a {
+            display: block; /* Make the entire link clickable */
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px; /* Add some padding for better touch targets */
+            background-color: rgba(0, 0, 0, 0.5); /* Optional: Add a semi-transparent background for better visibility */
+            border-radius: 5px; /* Optional: Add rounded corners */
+        }
+
+        ul.corner-nav li a:hover {
+            background-color: rgba(0, 0, 0, 0.7); /* Optional: Darken on hover */
+        }
+        
+    </style>
+
+    <div id="map-and-data">
+        
+        <div id="map"></div>
+        <div id="gps-container">
+            <h2 style="color: rgb(0, 0, 0);">GPS Data</h2>
+            <div id="gps-data">Loading...</div>
+        </div>
+    </div>
+   
+        
+        <div id="data-container">
+            
+            <div class="div-section" style="color: white;">
+                <h2>Weather Data</h2>
+                <div id="weather-data">Loading...</div>
+                <img src="https://images.unsplash.com/photo-1592210454359-9043f067919b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8d2VhdGhlcnxlbnwwfHwwfHx8MA%3D%3D" alt="Weather Data" class="data-image">
+            </div>
+            <div class="div-section" style="color: white;">
+                <h2>Fish Prediction</h2>
+                <div id="fish-prediction">Loading...</div>
+                <img src="https://images.unsplash.com/photo-1498654200943-1088dd4438ae?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGZpc2h8ZW58MHx8MHx8fDA%3D" alt="Fish Prediction" class="data-image">
+            </div>
+            
+
+</div>
+
+    <script>
+        // Initialize Leaflet map
+        const map = L.map('map').setView([10.0, 78.0], 7);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Geolocation and marker (example)
+        navigator.geolocation.watchPosition(position => {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            L.marker([lat, lon]).addTo(map).bindPopup(`<b>Latitude:</b> ${lat}<br><b>Longitude:</b> ${lon}`).openPopup();
+            map.setView([lat, lon], 12);
+            document.getElementById('gps-data').textContent = `Latitude: ${lat.toFixed(6)}, Longitude: ${lon.toFixed(6)}`;
+        });
+    </script>
+

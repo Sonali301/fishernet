@@ -1,0 +1,130 @@
+/* main.css - Styles for layout, content and navigation */
+#map {
+    height: 50%;
+    width: 100%;
+    border-bottom: 2px solid #778899; /* Light slate gray */
+  }
+  
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 120px 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 30px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+header {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 3;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+}
+
+nav ul li a:hover {
+    opacity: 0.7;
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px 20px;
+        /* Reduce padding for smaller screens */
+        align-items: center;
+    }
+    .logo {
+        font-size: 1.5rem;
+        /* Adjust if needed */
+        margin-bottom: 10px;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        /* Adjust the gap between menu items */
+        align-items: center;
+    }
+    nav ul li {
+        margin: 5px 0;
+        /* Vertical spacing between each menu item */
+    }
+}
+
+@media (max-width: 900px) {
+    .content {
+        padding: 20px 20px;
+    }
+}

@@ -1,0 +1,103 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="row mt-3">
+    <div class="col-8 offset-2">
+        <h3>Edit Fishing Net Listing</h3>
+        <form 
+            method="POST" 
+            action="/listings/<%= listing._id %>?_method=PUT" 
+            novalidate class="needs-validation" 
+            enctype="multipart/form-data" 
+        >
+
+        <div class="mb-3">
+            <label for="boatname" class="form-label">Boat Name</label>
+            <input name="listing[boatname]" value="<%= listing.boatname %>" type="text" class="form-control" placeholder="Enter boat name" required>
+            <div class="invalid-feedback">Please provide a boat name</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="nettype" class="form-label">Net Type</label>
+            <select name="listing[nettype]" class="form-control" required>
+                <option value="" disabled>Select net type</option>
+                <option value="Gill Net" <%= listing.nettype === 'Gill Net' ? 'selected' : '' %>>Gill Net</option>
+                <option value="Trawl Net" <%= listing.nettype === 'Trawl Net' ? 'selected' : '' %>>Trawl Net</option>
+                <option value="Cast Net" <%= listing.nettype === 'Cast Net' ? 'selected' : '' %>>Cast Net</option>
+                <option value="Seine Net" <%= listing.nettype === 'Seine Net' ? 'selected' : '' %>>Seine Net</option>
+                <option value="Trammel Net" <%= listing.nettype === 'Trammel Net' ? 'selected' : '' %>>Trammel Net</option>
+            </select>
+            <div class="invalid-feedback">Please select net type</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="listing[description]" class="form-control" placeholder="Describe the net's features and condition" required><%= listing.description %></textarea>
+            <div class="invalid-feedback">Please enter a description</div>
+        </div>
+
+        <h5 class="mt-4">Net Dimensions</h5>
+        <div class="row">
+            <div class="mb-3 col-md-3">
+                <label for="netsize.length" class="form-label">Length</label>
+                <input name="listing[netsize][length]" value="<%= listing.netsize.length %>" type="number" min="1" class="form-control" placeholder="e.g. 10" required>
+                <div class="invalid-feedback">Must be at least 1</div>
+            </div>
+
+            <div class="mb-3 col-md-3">
+                <label for="netsize.width" class="form-label">Width</label>
+                <input name="listing[netsize][width]" value="<%= listing.netsize.width %>" type="number" min="1" class="form-control" placeholder="e.g. 5" required>
+                <div class="invalid-feedback">Must be at least 1</div>
+            </div>
+
+            <div class="mb-3 col-md-3">
+                <label for="netsize.depth" class="form-label">Depth</label>
+                <input name="listing[netsize][depth]" value="<%= listing.netsize.depth %>" type="number" min="1" class="form-control" placeholder="e.g. 2" required>
+                <div class="invalid-feedback">Must be at least 1</div>
+            </div>
+
+            <div class="mb-3 col-md-3">
+                <label for="netsize.unit" class="form-label">Unit</label>
+                <select name="listing[netsize][unit]" class="form-control" required>
+                    <option value="feet" <%= listing.netsize.unit === 'feet' ? 'selected' : '' %>>Feet</option>
+                    <option value="meters" <%= listing.netsize.unit === 'meters' ? 'selected' : '' %>>Meters</option>
+                </select>
+                <div class="invalid-feedback">Please select a unit</div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="month" class="form-label">Available Month</label>
+            <select name="listing[month]" class="form-control" required>
+                <option value="" disabled>Select availability month</option>
+                <option value="January" <%= listing.month === 'January' ? 'selected' : '' %>>January</option>
+                <option value="February" <%= listing.month === 'February' ? 'selected' : '' %>>February</option>
+                <option value="March" <%= listing.month === 'March' ? 'selected' : '' %>>March</option>
+                <option value="April" <%= listing.month === 'April' ? 'selected' : '' %>>April</option>
+                <option value="May" <%= listing.month === 'May' ? 'selected' : '' %>>May</option>
+                <option value="June" <%= listing.month === 'June' ? 'selected' : '' %>>June</option>
+                <option value="July" <%= listing.month === 'July' ? 'selected' : '' %>>July</option>
+                <option value="August" <%= listing.month === 'August' ? 'selected' : '' %>>August</option>
+                <option value="September" <%= listing.month === 'September' ? 'selected' : '' %>>September</option>
+                <option value="October" <%= listing.month === 'October' ? 'selected' : '' %>>October</option>
+                <option value="November" <%= listing.month === 'November' ? 'selected' : '' %>>November</option>
+                <option value="December" <%= listing.month === 'December' ? 'selected' : '' %>>December</option>
+            </select>
+            <div class="invalid-feedback">Please select availability month</div>
+        </div>
+
+        <% if(listing.image) { %>
+        <div class="mb-3">
+            Current Image: <br>
+            <img src="<%= listing.image %>" class="img-thumbnail" style="max-height: 200px;">
+        </div>
+        <% } %>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Update Image (Optional)</label>
+            <input name="listing[image]" type="file" class="form-control">
+        </div>
+
+        <button class="btn btn-dark mt-3 mb-5">Update Listing</button>
+        </form>
+    </div>
+</div>

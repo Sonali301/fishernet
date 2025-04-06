@@ -1,0 +1,129 @@
+body {
+    font-family: 'Times New Roman', Times, serif; /* Classic font */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: linear-gradient(135deg, #e6e6fa, #d1e9e9); /* Lavender to light teal gradient */
+    color: #333;
+  }
+  
+ 
+  #map {
+    height: 50%;
+    width: 100%;
+    border-bottom: 2px solid #778899; /* Light slate gray */
+  }
+  
+  #data-container, .div-section {
+    background: #f0f8ff; /* Alice blue */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    width: 90%;
+    box-sizing: border-box;
+  }
+  
+  .div-section h2, .div-section h3 {
+    color: #2F4F4F; /* Dark slate gray */
+    margin-top: 0;
+    border-bottom: 1px solid #b0c4de; /* Light steel blue */
+    padding-bottom: 10px;
+  }
+  
+  #weather-data, #fish-prediction, #gps-data, #catch-report, #regulations, #safety, #profile, #history {
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }
+  
+  #catch-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #catch-form label {
+    margin-top: 10px;
+    color: #5F9EA0; /* Cadet blue */
+  }
+  
+  #catch-form input, #catch-form button {
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  #catch-form button {
+    background-color: #708090; /* Slate gray */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #catch-form button:hover {
+    background-color: #696969; /* Dim gray */
+  }
+  
+  .leaflet-popup-content {
+    font-size: 14px;
+  }
+
+  ul.corner-nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute; /* Position it relative to the nearest positioned ancestor (body here) */
+    top: 10px; /* Adjust top spacing as needed */
+    right: 10px; /* Adjust right spacing as needed */
+    display: flex; /* Arrange list items in a row */
+}
+
+ul.corner-nav li {
+    margin-left: 15px; /* Spacing between list items */
+}
+
+ul.corner-nav li:first-child {
+    margin-left: 0; /* Remove left margin for the first item */
+}
+
+ul.corner-nav li a {
+    display: block; /* Make the entire link clickable */
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px; /* Add some padding for better touch targets */
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: Add a semi-transparent background for better visibility */
+    border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+ul.corner-nav li a:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Optional: Darken on hover */
+}
+
+.data-image {
+    max-width: 30%;
+    height: auto;
+    margin-top: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-left: 200px;
+}
+
+.logo-image {
+    margin-top: -12px;
+    width: 70px;
+    margin-left: -616px;
+    display: block;
+
+
+    margin-bottom: -10px;
+}
+
+#data-container{
+    margin-left: 2em;
+    color: white;
+}
+

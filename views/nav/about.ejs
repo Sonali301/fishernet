@@ -1,0 +1,134 @@
+<!-- Canvas for interactive background -->
+<% layout("/layouts/boilerplate") %>
+<canvas id="canvas"></canvas>
+<link rel="stylesheet" href="/css/background.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/elegant-timeline.css">
+
+<div class="content about-content">
+    <h1>About</h1>
+
+    <div class="bio-section">
+        <div class="bio-photo">
+           
+        </div>
+        <p class="bio-text">
+            This platform is designed specifically to enhance the efficiency and sustainability of coastal fishing
+            practices in Tamil Nadu. By integrating modern technology with the invaluable traditional knowledge of
+            our fishermen, we aim to address key challenges such as territorial compliance, fishing efficiency,
+            overfishing, and resource optimization. Join us in navigating a future where technology strengthens
+            livelihoods and protects our precious marine ecosystems.
+        </p>
+    </div>
+
+    <!-- Unified Timeline Container -->
+    <div class="timeline-container">
+        <div class="timeline-line"></div>
+
+        <!-- Fishing Regulations Section -->
+        <div class="timeline-item work">
+            <div class="timeline-content">
+                <h3>Fishing Regulations</h3>
+
+                <div class="timeline-org">Fishing ban period</div>
+                <div class="img"><img src="/assets/fishingbanperiod.jpeg" alt="Fishing ban period" class="rimage"></div>
+                <p>To protect fish breeding and ensure sustainable fishing, there are specific fishing ban periods
+                    in Tamil Nadu. The annual 60-day fishing ban typically occurs during the peak breeding season.
+                </p>
+
+                <div class="timeline-org">Catch Quotas and Restrictions</div>
+                <div class="img"><img src="/assets/restriction.jpeg" alt="Catch restrictions" class="rimg"></div>
+                <p>To protect fish breeding and ensure sustainable fishing, there are specific fishing ban periods
+                    in Tamil Nadu. The annual 60-day fishing ban typically occurs during the peak breeding season.
+                </p>
+
+                <div class="timeline-org">Marine Protected Areas</div>
+                <div class="img"><img src="/assets/marine protected areas.jpeg" alt="Marine protected areas" class="rimg"></div>
+                <p>Marine Protected Areas (MPAs) are designated zones where fishing is restricted or prohibited to
+                    conserve marine biodiversity. Familiarize yourself with the boundaries of these areas.</p>
+
+                <div class="timeline-org">Net and Gear Regulations</div>
+                <div class="img"><img src="/assets/net and gear.jpeg" alt="Fishing gear regulations" class="rimg"></div>
+                <p>Specific regulations apply to the types of nets and fishing gear that can be used. Using
+                    prohibited gear can lead to penalties.</p>
+
+                <div class="timeline-org">Licensing and Permits</div>
+                <p>Ensure you have the necessary fishing licenses and permits before engaging in fishing activities.</p>
+
+                <div class="timeline-org">Reporting Illegal Activities</div>
+                <div class="img"><img src="/assets/reporting illigal activities.jpeg" alt="Report illegal fishing" class="rimg"></div>
+                <p>If you witness any illegal fishing activities, report them to the relevant authorities.</p>
+
+            </div>
+            <div class="timeline-connector"></div>
+            <div class="timeline-marker"></div>
+        </div>
+
+        
+        <!-- Safety Tips Section -->
+        <div class="timeline-item work">
+            <div class="timeline-content">
+                <h3>Safety Tips</h3>
+                <div class="timeline-org">Wear Life Jackets</div>
+                <img src="/assets/life jackets.jpeg" alt="Life Jacket" class="rimg">
+                <p>Always wear a life jacket or personal flotation device (PFD) while on the water.</p>
+
+                <div class="timeline-org">Check Weather Conditions</div>
+                <img src="/assets/weather condition.jpeg" alt="Weather conditions" class="rimg">
+                <p>Before heading out, check the weather forecast and be aware of any potential storms or rough
+                    seas.</p>
+
+                <div class="timeline-org">Carry Communication Devices</div>
+                <img src="/assets/communication device.jpeg" alt="Communication Devices" class="rimg">
+                <p>Bring a VHF radio or other communication device to contact emergency services if needed.</p>
+
+                <div class="timeline-org">Maintain Your Boat</div>
+                <img src="/assets/maintain your boat.jpeg" alt="Boat Maintanance" class="rimg">
+                <p>Regularly inspect and maintain your boat to ensure it's in good working condition.</p>
+
+                <div class="timeline-org">Know Your Limits</div>
+                <img src="/assets/know your limits.jpeg" alt="Know Your Limits" class="rimg">
+                <p>Be aware of your physical limitations and don't take unnecessary risks.</p>
+
+                <div class="timeline-org">Emergency Procedures</div>
+                <img src="/assets/emergency procedure.jpeg" alt="Emergency Procedures" class="rimg">
+                <p>Familiarize yourself with emergency procedures, including how to signal for help and what to do in case of a fire or flooding.</p>
+
+            </div>
+            <div class="timeline-connector"></div>
+            <div class="timeline-marker"></div>
+        </div>
+        
+        <!-- History Section -->
+        <div class="timeline-item certification">
+            <div class="timeline-content">
+                <h3>History of Tamil Nadu Fishing Practices</h3>
+
+                <div class="timeline-org">Pre-Independence Era</div>
+                <img src="/assets/pre independent era.jpeg" alt="Pre-Independence Fishing" class="rimg">
+                <p>Predominantly artisanal fishing using traditional crafts like catamarans and country crafts. Reliance on monsoon cycles and traditional knowledge for fishing seasons. Coastal communities had strong social and cultural ties to fishing.</p>
+
+                <div class="timeline-org">Post-Independence Era</div>
+                <img src="/assets/post indipendent era.jpeg" alt="Post-Independence Fishing" class="rimg">
+                <p>Introduction of mechanized boats and modern fishing gear. Increased focus on deep-sea fishing and trawling. Development of fishing harbors and infrastructure.</p>
+
+                <div class="timeline-org">Recent Trends</div>
+                <img src="/assets/recent trends.jpeg" alt="Recent Trends Fishing" class="rimg">
+                <p>Growing concerns over overfishing and depletion of fish stocks. Impact of climate change on
+                    fishing patterns and marine ecosystems. Increasing competition from industrial fishing. Need for
+                    sustainable fishing practices and community-based fisheries management.</p>     
+            </div>
+            <div class="timeline-connector"></div>
+            <div class="timeline-marker"></div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script src="/js/interactive-background.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        new InteractiveBackground('canvas');
+    });
+</script>
+
